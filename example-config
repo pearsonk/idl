@@ -1,0 +1,65 @@
+# Branch to build.
+BRANCH="master"
+
+# OpenXT git repositories. Optionally replace with a local mirror.
+OPENXT_GIT_MIRROR="github.com/OpenXT"
+OPENXT_GIT_PROTOCOL="git"
+
+# Optional mirror of upstream OpenEmbedded git repositories.
+OE_GIT_MIRROR=
+
+# Downloads needed for OpenXT build. Optionally replace with a local mirror.
+OPENXT_MIRROR="http://mirror.openxt.org"
+
+# Used to construct build name.
+NAME_SITE="openxt"
+BUILD_TYPE="dev"
+
+# Disables bitbake's "rm_work" task. Leaves sources in build tree at end.
+INHIBIT_RMWORK="yes"
+
+# Uncomment for more verbose build output.
+#DEBUG="yes"
+
+# Certificates for signing OpenXT install/upgrade repositories:
+#
+#   - development CA cert, included in dom0 filesystem
+#   - development signing cert (child of CA cert) and private key
+#   - production CA cert, also included in dom0 filesystem
+#
+# Every build is signed by the development signing key. Release builds can
+# then be re-signed by the production signing key.
+#
+# TODO: Explain how to generate these files.
+REPO_PROD_CACERT=
+REPO_DEV_CACERT=
+REPO_DEV_SIGNING_CERT=
+REPO_DEV_SIGNING_KEY=
+
+# NEVER_GET_LOG disable log collection, which makes the build faster
+#NEVER_GET_LOG=1
+
+# IMPORTANT: Some of the next options may not work correctly if you did not \
+# specify a unique build ID using ./do_build.sh -i <ID>
+
+# SYNC_CACHE_OE is an rsync destination for OE downloads and archives.
+# It is used by those do_build.sh steps:
+# - sync_cache: rsync oe-download (tarballs) to SYNC_CACHE_OE
+# - sync_cache_back: rsync oe-download from SYNC_CACHE_OE to the tree
+# - packages_tree: hardlinks packages if they exist in SYNC_CACHE_OE
+#SYNC_CACHE_OE=/home/builds/oe
+
+# BUILD_RSYNC_DESTINATION is where the build output is copied to
+# It is used by those do_build.sh steps:
+# - copy: copies the build output to BUILD_RSYNC_DESTINATION
+# - packages_tree: copies all OE packages over, except for the ones that can \
+#                  be hardlinked to SYNC_CACHE_OE
+#BUILD_RSYNC_DESTINATION=/home/builds
+
+# NETBOOT_HTTP_URL is used by the package manager to find the package repository
+#NETBOOT_HTTP_URL=http://openxt.example.org/builds
+
+# TODO: Add descriptions for:
+#   - FREEZE_URIS
+#   - OE_BB_THREADS
+#   - OE_TARBALL_MIRROR
