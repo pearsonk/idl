@@ -265,6 +265,10 @@
       <tp:docstring>If false, switching to the actual current slot will do nothing.</tp:docstring>
     </property>
 
+    <property name="switcher-key" type="i" access="readwrite">
+      <tp:docstring>Set the switcher key used for accessing VM slots, in combination with the 1 through 0. Default behaviour it to use both CTRL keys.</tp:docstring>
+    </property>
+
     <property name="switcher-keyboard-follows-mouse" type="b" access="readwrite">
       <tp:docstring>If false, when mouse-switching, the keyboard stays in it's slot until a mouse click.</tp:docstring>
     </property>
